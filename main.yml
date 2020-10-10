@@ -27,7 +27,7 @@
   roles:
     - role: frontend
       vars:
-        GUID: "8d745"
+        GUID: "8d74"
         FD1: "8d75"
     # - apps
     # - db

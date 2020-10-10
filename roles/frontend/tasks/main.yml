@@ -28,6 +28,8 @@
   template:
     src: haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
+  vars:
+    haproxy_port: "8080"
 
 - name: restart HAproxy
   service:

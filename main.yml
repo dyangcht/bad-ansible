@@ -29,5 +29,15 @@
       vars:
         GUID: "8d74"
         FD1: "8d75"
-    # - apps
-    # - db
+
+- hosts: apps
+  gather_facts: false
+  become: true
+  roles:
+    - apps
+
+- hosts: apps
+  gather_facts: false
+  become: true
+  roles:
+    - db

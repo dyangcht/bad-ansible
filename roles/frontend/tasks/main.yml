@@ -12,7 +12,7 @@
 #    state: latest
 - name: Print message
   debug: 
-    msg: "this is a testing message {{ GUID }} and {{ ansible_managed }}"
+    msg: "this is a testing message {{ GUID }}"
 
 - name: install HAProxy
   yum:

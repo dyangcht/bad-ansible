@@ -13,15 +13,15 @@
 #   Bare variables
 #   No use of handlers
 
-- name: configuration
-  hosts: all
+# - name: configuration
+- hosts: all
   gather_facts: true
   become: true
   roles:
     - config
 
-- name: configuration
-  hosts: frontend
+# name: configuration
+- hosts: frontend
   gather_facts: false
   become: true
   roles:

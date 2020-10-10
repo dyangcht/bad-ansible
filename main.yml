@@ -36,7 +36,7 @@
   roles:
     - apps
 
-- hosts: apps
+- hosts: appdbs
   gather_facts: false
   become: true
   roles:

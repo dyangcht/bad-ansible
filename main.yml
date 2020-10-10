@@ -21,7 +21,7 @@
     - config
 
 # name: configuration
-- hosts: frontend
+- hosts: frontend1
   gather_facts: false
   become: true
   roles:

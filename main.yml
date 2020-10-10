@@ -28,7 +28,7 @@
     - role: frontend
       vars:
         GUID: "8d74"
-        FD1: "8d75"
+        # FD1: "8d75"
 
 - hosts: apps
   gather_facts: false

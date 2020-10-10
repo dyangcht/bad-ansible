@@ -21,12 +21,12 @@
     - config
 
 - name: configuration
-  hosts: all
+  hosts: frontend
   gather_facts: false
   become: true
   roles:
     - role: frontend
       vars:
         GUID: "8d74"
-    - apps
-    - db
+    # - apps
+    # - db

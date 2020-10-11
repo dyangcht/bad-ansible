@@ -1,0 +1,8 @@
+- name: add AD users
+  hosts: windows
+  gather_facts: false
+  # vars_files:
+  #   - ./ad_user_vars.yml
+  # become: true
+  roles:
+    - role: win_ad_user

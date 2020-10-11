@@ -6,9 +6,16 @@
 - name: Sets up the AD controller
   win_domain:
     dns_domain_name: "{{ ad_domain_name }}"
-    safe_mode_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+    safe_mode_password: 
 
 - name: Reboot windows server
   win_reboot:
     pre_reboot_delay: 5
 
+- name: list domain name
+  win_command: nltest /dclist:"{{ ad_domain_name }}"
+  register: result
+      
+- name: Print out domain result
+  debug: 
+    msg: "Result: {{ result }}"

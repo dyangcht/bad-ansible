@@ -1,8 +1,19 @@
 - name: install the Win OpenSSH service
   win_chocolatey:
-    name: openssh
+    name: "{{ package_name }}"
     package_params: "{{ parameters }}"
-    state: present
+    state: latest
+  when: ansible_distribution == "Microsoft Windows Server 2012 R2 Standard"
+
+- name: Enable {{ service_name }}
+  win_service:
+    name: "{{ service_name }}"
+  register: result
+  when: ansible_distribution == "Microsoft Windows Server 2012 R2 Standard"
+
+- name: Print out service
+  debug: 
+    msg: "Result: {{ result }}"
 
 - name: open port 22 for inbound SSH connections
   win_firewall_rule:
@@ -14,11 +25,3 @@
     state: present
     enabled: yes
 
-- name: Enable {{ service_name }}
-  win_service:
-    name: "{{ service_name }}"
-  register: result
-
-- name: Print out service
-  debug: 
-    msg: "Result: {{ result }}"

@@ -1,0 +1,14 @@
+- name: Installs the AD-Domain-Services feature
+  win_feature:
+    name: AD-Domain-Services
+    state: present
+
+- name: Sets up the AD controller
+  win_domain:
+    dns_domain_name: "{{ ad_domain_name }}"
+    safe_mode_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+
+- name: Reboot windows server
+  win_reboot:
+    pre_reboot_delay: 5
+

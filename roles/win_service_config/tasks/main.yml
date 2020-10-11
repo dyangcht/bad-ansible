@@ -17,8 +17,8 @@
 - name: Enable {{ service_name }}
   win_service:
     name: "{{ service_name }}"
-    register: res_service
+    register: result
 
 - name: Print out service
-  debug:
-    msg: "The service enabling: {{ res_service }}"
+  debug: 
+    msg: "Result: {{ result }}"

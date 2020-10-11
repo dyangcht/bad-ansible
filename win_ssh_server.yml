@@ -1,0 +1,6 @@
+---
+- hosts: windows
+  gather_facts: true
+  become: true
+  roles:
+    - role: win_service_config

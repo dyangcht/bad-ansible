@@ -1,0 +1,24 @@
+- name: install the Win OpenSSH service
+  win_chocolatey:
+    name: openssh
+    package_params: "{{ parameters }}"
+    state: present
+
+- name: open port 22 for inbound SSH connections
+  win_firewall_rule:
+    name: Win32-OpenSSH inbound
+    protocol: "{{ protocol_name }}"
+    localport: "{{ local_port }}"
+    direction: in
+    action: allow
+    state: present
+    enabled: yes
+
+- name: Enable {{ service_name }}
+  win_service:
+    name: "{{ service_name }}"
+    register: res_service
+
+- name: Print out service
+  debug:
+    msg: "The service enabling: {{ res_service }}"
